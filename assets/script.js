@@ -1,7 +1,9 @@
 var searchButton = document.querySelector("#search-button");
+var nameInput = document.querySelector("#name-input");
 
 function search() {
-    console.log("clicked")
+    let name = nameInput.value.trim();
+    console.log(name)
 }
 
-window.addEventListener("click", search)
+searchButton.addEventListener("click", search);
