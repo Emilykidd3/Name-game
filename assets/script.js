@@ -1,5 +1,5 @@
-var searchButton = document.querySelector("#search-button");
-var nameInput = document.querySelector("#name-input");
+const searchButton = document.querySelector("#search-button");
+const nameInput = document.querySelector("#name-input");
 
 function search() {
     let name = nameInput.value.trim();
@@ -7,7 +7,7 @@ function search() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                displayResults(data);
+                displayResults(data, name);
             });
         } else {
             console.error("Error: "+response.statusText);
@@ -15,8 +15,10 @@ function search() {
     })
 }
 
-function displayResults(data) {
-    console.log(data)
+function displayResults(data, name) {
+    const resultsDiv = document.querySelector("#results")
+    resultsDiv.textContent = `The average age of some named ${name} is ${data.age}`;
+    console.log(data.age)
 }
 
 searchButton.addEventListener("click", search);
