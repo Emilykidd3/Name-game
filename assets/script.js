@@ -4,6 +4,7 @@ const nameInput = document.querySelector("#name-input");
 function search() {
     findAge();
     findGender();
+    findNationality();
 }
 
 function findAge() {
@@ -23,6 +24,20 @@ function findAge() {
 function findGender() {
     let name = nameInput.value.trim();
     fetch(`https://api.genderize.io?name=${name}&country_id=US`)
+    .then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data, name);
+            });
+        } else {
+            console.error("Error: "+response.statusText);
+        }
+    })
+}
+
+function findNationality() {
+    let name = nameInput.value.trim();
+    fetch(`https://api.nationalize.io?name=${name}`)
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
