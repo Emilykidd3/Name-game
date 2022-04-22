@@ -27,7 +27,8 @@ function findGender() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data, name);
+                console.log(data.gender);
+                console.log(data.probability)
             });
         } else {
             console.error("Error: "+response.statusText);
@@ -41,7 +42,7 @@ function findNationality() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data, name);
+                console.log(data.country[0]);
             });
         } else {
             console.error("Error: "+response.statusText);
