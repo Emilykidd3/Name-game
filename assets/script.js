@@ -13,7 +13,7 @@ function findAge() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                displayResults(data, name);
+                displayResults(data, name)
             });
         } else {
             console.error("Error: "+response.statusText);
@@ -27,8 +27,8 @@ function findGender() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data.gender);
-                console.log(data.probability)
+                // console.log(data.gender);
+                // console.log(data.probability)
             });
         } else {
             console.error("Error: "+response.statusText);
@@ -42,7 +42,7 @@ function findNationality() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data.country[0]);
+                // console.log(data.country[0]);
             });
         } else {
             console.error("Error: "+response.statusText);
@@ -51,14 +51,14 @@ function findNationality() {
 }
 
 function displayResults(data, name) {
-    const resultsDiv = document.querySelector("#results")
+    const ageResults = document.querySelector("#age")
     const nameDisplay = document.querySelector("#name")
     nameDisplay.textContent = name;
-    // if (data.age === null) {
-    //     resultsDiv.textContent = `There are no results for someone named ${name}, try another name!`;
-    // } else {
-    //     resultsDiv.textContent = `The predicted age of someone named ${name} is ${data.age}`;
-    // }
+    if (data.age === null) {
+        ageResults.textContent = `There are no results for someone named ${name}, try another name!`;
+    } else {
+        ageResults.textContent = `The predicted age of someone named ${name} is ${data.age}`;
+    }
     console.log(data)
 }
 
