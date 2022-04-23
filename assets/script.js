@@ -64,12 +64,17 @@ function displayResults(data, name) {
 
 function displayGender(data, name) {
     var genderResults = document.querySelector("#gender")
-    var percentage = data.probability
-    console.log(percentage.toString().split(".")[1]);
+    if (data.probability.toString().includes(".")) {
+        console.log("contains .")
+        var percentage = data.probability.toString().split(".")[1]
+    } else {
+        var percentage = 100
+    }
+
     if (data.gender === null) {
         genderResults.textContent = `There are no results for someone named ${name}, try another name!`;
     } else {
-        genderResults.textContent = `${name} is a ${data.gender} name ${percentage.toString().split(".")[1]}% of the time`;
+        genderResults.textContent = `${name} is a ${data.gender} name ${percentage}% of the time`;
     }
 }
 
