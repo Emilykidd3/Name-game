@@ -27,8 +27,9 @@ function findGender() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                // console.log(data.gender);
-                // console.log(data.probability)
+                console.log(data.gender);
+                console.log(data.probability)
+                displayGender(data, name);
             });
         } else {
             console.error("Error: "+response.statusText);
@@ -59,7 +60,17 @@ function displayResults(data, name) {
     } else {
         ageResults.textContent = `The predicted age of someone named ${name} is ${data.age}`;
     }
-    console.log(data)
+}
+
+function displayGender(data, name) {
+    var genderResults = document.querySelector("#gender")
+    var percentage = data.probability
+    console.log(percentage.toString().split(".")[1]);
+    if (data.gender === null) {
+        genderResults.textContent = `There are no results for someone named ${name}, try another name!`;
+    } else {
+        genderResults.textContent = `${name} is a ${data.gender} name ${percentage.toString().split(".")[1]}% of the time`;
+    }
 }
 
 searchButton.addEventListener("click", search);
