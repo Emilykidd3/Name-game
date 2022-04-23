@@ -54,9 +54,9 @@ function findNationality() {
 function displayResults(data, name) {
     const ageResults = document.querySelector("#age")
     const nameDisplay = document.querySelector("#name")
-    nameDisplay.textContent = name;
+    nameDisplay.textContent = capitalize(name);
     if (data.age === null) {
-        ageResults.textContent = `There are no results for someone named ${name}, try another name!`;
+        ageResults.textContent = `There are no age results for someone named ${name}, try another name!`;
     } else {
         ageResults.textContent = `The predicted age of someone named ${name} is ${data.age}`;
     }
@@ -70,12 +70,15 @@ function displayGender(data, name) {
     } else {
         var percentage = 100
     }
-
     if (data.gender === null) {
-        genderResults.textContent = `There are no results for someone named ${name}, try another name!`;
+        genderResults.textContent = `There are no gender results for someone named ${name}, try another name!`;
     } else {
         genderResults.textContent = `${name} is a ${data.gender} name ${percentage}% of the time`;
     }
+}
+
+function capitalize(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
 searchButton.addEventListener("click", search);
