@@ -52,11 +52,13 @@ function findNationality() {
 
 function displayResults(data, name) {
     const resultsDiv = document.querySelector("#results")
-    if (data.age === null) {
-        resultsDiv.textContent = `There are no results for someone named ${name}, try another name!`;
-    } else {
-        resultsDiv.textContent = `The predicted age of someone named ${name} is ${data.age}`;
-    }
+    const nameDisplay = document.querySelector("#name")
+    nameDisplay.textContent = name;
+    // if (data.age === null) {
+    //     resultsDiv.textContent = `There are no results for someone named ${name}, try another name!`;
+    // } else {
+    //     resultsDiv.textContent = `The predicted age of someone named ${name} is ${data.age}`;
+    // }
     console.log(data)
 }
 

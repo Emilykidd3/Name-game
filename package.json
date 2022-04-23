@@ -1,0 +1,23 @@
+{
+  "name": "apis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "country-code-lookup": "^0.0.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emilykidd3/APIs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emilykidd3/APIs/issues"
+  },
+  "homepage": "https://github.com/Emilykidd3/APIs#readme"
+}
