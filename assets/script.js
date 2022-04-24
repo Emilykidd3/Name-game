@@ -8,7 +8,7 @@ function search() {
 }
 
 function findAge() {
-    let name = nameInput.value.trim();
+    let name = capitalize(nameInput.value.trim());
     fetch(`https://api.agify.io?name=${name}&country_id=US`)
     .then(function(response) {
         if (response.ok) {
@@ -22,7 +22,7 @@ function findAge() {
 }
 
 function findGender() {
-    let name = nameInput.value.trim();
+    let name = capitalize(nameInput.value.trim());
     fetch(`https://api.genderize.io?name=${name}&country_id=US`)
     .then(function(response) {
         if (response.ok) {
@@ -38,7 +38,7 @@ function findGender() {
 }
 
 function findNationality() {
-    let name = nameInput.value.trim();
+    let name = capitalize(nameInput.value.trim());
     fetch(`https://api.nationalize.io?name=${name}`)
     .then(function(response) {
         if (response.ok) {
