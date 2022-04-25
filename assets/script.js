@@ -79,6 +79,13 @@ function displayGender(data, name) {
 }
 
 function displayNationality(data, name) {
+    if (data.country[0].probability.toString().includes(".")) {
+        var percentage = data.country[0].probability.toString().split(".")[1]
+    } else {
+        var percentage = 100
+    }
+    console.log(typeof(data.country[0].probability))
+    console.log(percentage)
     var nationality = regionNames.of(data.country[0].country_id)
     const nationalityResults = document.querySelector("#nationality")
     if (data.country === null) {
