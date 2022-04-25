@@ -79,7 +79,13 @@ function displayGender(data, name) {
 }
 
 function displayNationality(data, name) {
-    console.log(regionNames.of(data.country[0].country_id))
+    var nationality = regionNames.of(data.country[0].country_id)
+    const nationalityResults = document.querySelector("#nationality")
+    if (data.country === null) {
+        nationalityResults.textContent = `There are no nationality results for someone named ${name}, try another name!`;
+    } else {
+        nationalityResults.textContent = `Someone named ${name} is typically from ${nationality}`;
+    }
 }
 
 function capitalize(name) {
