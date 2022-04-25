@@ -1,6 +1,10 @@
 const searchButton = document.querySelector("#search-button");
 const nameInput = document.querySelector("#name-input");
 
+const regionNames = new Intl.DisplayNames(
+    ['en'], {type: 'region'}
+  );
+
 function search() {
     findAge();
     findGender();
@@ -27,8 +31,6 @@ function findGender() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                console.log(data.gender);
-                console.log(data.probability)
                 displayGender(data, name);
             });
         } else {
@@ -43,7 +45,7 @@ function findNationality() {
     .then(function(response) {
         if (response.ok) {
             response.json().then(function(data) {
-                // console.log(data.country[0]);
+                displayNationality(data, name)
             });
         } else {
             console.error("Error: "+response.statusText);
@@ -65,7 +67,6 @@ function displayResults(data, name) {
 function displayGender(data, name) {
     var genderResults = document.querySelector("#gender")
     if (data.probability.toString().includes(".")) {
-        console.log("contains .")
         var percentage = data.probability.toString().split(".")[1]
     } else {
         var percentage = 100
@@ -75,6 +76,10 @@ function displayGender(data, name) {
     } else {
         genderResults.textContent = `${name} is a ${data.gender} name ${percentage}% of the time`;
     }
+}
+
+function displayNationality(data, name) {
+    console.log(regionNames.of(data.country[0].country_id))
 }
 
 function capitalize(name) {
