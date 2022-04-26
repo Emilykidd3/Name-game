@@ -100,3 +100,9 @@ function capitalize(name) {
 }
 
 searchButton.addEventListener("click", search);
+document.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      searchButton.click();
+    }
+  });
