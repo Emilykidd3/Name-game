@@ -79,8 +79,9 @@ function displayGender(data, name) {
 }
 
 function displayNationality(data, name) {
+    console.log(data.country[0].probability)
     if (data.country[0].probability.toString().includes(".")) {
-        var percentage = data.country[0].probability.toString().split(".")[1]
+        var percentage = data.country[0].probability.toString().split(".")[1].slice(0,2)
     } else {
         var percentage = 100
     }
@@ -91,7 +92,7 @@ function displayNationality(data, name) {
     if (data.country === null) {
         nationalityResults.textContent = `There are no nationality results for someone named ${name}, try another name!`;
     } else {
-        nationalityResults.textContent = `Someone named ${name} is typically from ${nationality}`;
+        nationalityResults.textContent = `The predicted nationality of ${name} is ${nationality} (${percentage}%)`;
     }
 }
 
