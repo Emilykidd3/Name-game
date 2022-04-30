@@ -6,9 +6,14 @@ const regionNames = new Intl.DisplayNames(
   );
 
 function search() {
-    findAge();
-    findGender();
-    findNationality();
+    if (nameInput.value.trim() === ""){
+        const errorDisplay = document.querySelector("#no-input")
+        errorDisplay.textContent = "type in a name to try!";
+    } else {
+        findAge();
+        findGender();
+        findNationality();
+    }
 }
 
 function findAge() {
