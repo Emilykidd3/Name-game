@@ -92,7 +92,7 @@ function displayNationality(data, name) {
     if (data.country === null) {
         nationalityResults.textContent = `There are no nationality results for someone named ${name}, try another name!`;
     } else {
-        nationalityResults.textContent = `The predicted nationality of ${name} is ${nationality} (${percentage}%)`;
+        nationalityResults.textContent = `The name ${name} is ${percentage}% likely to originate from ${nationality}`;
     }
 }
 
