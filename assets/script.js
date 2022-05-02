@@ -84,19 +84,21 @@ function displayGender(data, name) {
 }
 
 function displayNationality(data, name) {
-    console.log(data.country[0].probability)
-    if (data.country[0].probability.toString().includes(".")) {
-        var percentage = data.country[0].probability.toString().split(".")[1].slice(0,2)
-    } else {
-        var percentage = 100
-    }
-    console.log(typeof(data.country[0].probability))
-    console.log(percentage)
-    var nationality = regionNames.of(data.country[0].country_id)
+    // console.log(typeof(data.country[0].probability))
+    // console.log(percentage)
+    console.log(data.country)
     const nationalityResults = document.querySelector("#nationality")
-    if (data.country === null) {
+    // console.log(data.country[0].country_id)
+    if (data.country.length === 0) {
+        console.log("here")
         nationalityResults.textContent = `There are no nationality results for someone named ${name}, try another name!`;
     } else {
+        if (data.country[0].probability.toString().includes(".")) {
+            var percentage = data.country[0].probability.toString().split(".")[1].slice(0,2)
+        } else {
+            var percentage = 100
+        }
+        var nationality = regionNames.of(data.country[0].country_id)
         nationalityResults.textContent = `The name ${name} is ${percentage}% likely to originate from ${nationality}`;
     }
 }
