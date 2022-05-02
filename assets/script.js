@@ -99,7 +99,11 @@ function displayNationality(data, name) {
 }
 
 function capitalize(name) {
-    return name.charAt(0).toUpperCase() + name.slice(1);
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+    for (var i = 1; i < name.length; i++){
+        name = name.slice(0,i) + name.charAt(i).toLowerCase() + name.slice(i+1)
+    }
+    return name;
 }
 
 searchButton.addEventListener("click", search);
