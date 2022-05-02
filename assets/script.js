@@ -84,13 +84,8 @@ function displayGender(data, name) {
 }
 
 function displayNationality(data, name) {
-    // console.log(typeof(data.country[0].probability))
-    // console.log(percentage)
-    console.log(data.country)
     const nationalityResults = document.querySelector("#nationality")
-    // console.log(data.country[0].country_id)
     if (data.country.length === 0) {
-        console.log("here")
         nationalityResults.textContent = `There are no nationality results for someone named ${name}, try another name!`;
     } else {
         if (data.country[0].probability.toString().includes(".")) {
