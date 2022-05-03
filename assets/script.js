@@ -63,7 +63,7 @@ function displayResults(data, name) {
     const nameDisplay = document.querySelector("#name")
     nameDisplay.textContent = capitalize(name);
     if (data.age === null) {
-        ageResults.textContent = `There are no age results for someone named ${name}, try another name!`;
+        ageResults.textContent = `We can't find any results for someone named ${name}, try another name!`;
     } else {
         ageResults.textContent = `The predicted age of someone named ${name} is ${data.age}`;
     }
@@ -77,7 +77,7 @@ function displayGender(data, name) {
         var percentage = 100
     }
     if (data.gender === null) {
-        genderResults.textContent = `There are no gender results for someone named ${name}, try another name!`;
+        genderResults.textContent = "";
     } else {
         genderResults.textContent = `${name} is a ${data.gender} name ${percentage}% of the time`;
     }
@@ -86,7 +86,7 @@ function displayGender(data, name) {
 function displayNationality(data, name) {
     const nationalityResults = document.querySelector("#nationality")
     if (data.country.length === 0) {
-        nationalityResults.textContent = `There are no nationality results for someone named ${name}, try another name!`;
+        nationalityResults.textContent = "";
     } else {
         if (data.country[0].probability.toString().includes(".")) {
             var percentage = data.country[0].probability.toString().split(".")[1].slice(0,2)
